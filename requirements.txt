@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly
+os
+requests
+zipfiles
+datetime
