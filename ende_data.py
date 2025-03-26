@@ -1,9 +1,6 @@
+import os
 import streamlit as st
-
-# Configurar la página
-st.set_page_config(page_title="Dashboard Principal", layout="wide")
-st.image(r"C:\Users\daniel.canedo\ende.ai\cndc\mi_app\image.png", width=200)
-
+from PIL import Image
 
 # Título principal con emoji
 st.title("⚡ Bienvenido a la App de Energía Renovable 🌱")
@@ -24,7 +21,6 @@ with col1:
 # Columna derecha: Imagen adicional de energías renovables
 with col2:
     st.image("https://i0.wp.com/energysavingpros.com/wp-content/uploads/2016/11/EnergySavingPros_SunPower.jpg?resize=2048%2C1160&ssl=1", use_container_width=True)
-    
     st.caption("Energías renovables: Solar, Eólica e Hidroeléctrica")
 
 # Menú de navegación en la barra lateral
