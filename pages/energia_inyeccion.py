@@ -59,7 +59,7 @@ with col1:
     fig1.add_hline(y=df_final['Energía'].mean(), line_dash="dot", line_color="gray")
     promedio_proyecto = df_final['Energía'].mean()
     st.plotly_chart(fig1, use_container_width=True)
-    st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
+    st.markdown(f"**Promedio por planta: {promedio_proyecto:,.2f}**")
 
 # Gráfico de precio promedio por tecnología
 df_tecnologia = df_long.groupby(['Fecha', 'Tecnología'])['Energía'].mean().reset_index()
@@ -72,7 +72,7 @@ with col2:
     fig2.add_hline(y=df_tecnologia_filtrado['Energía'].mean(), line_dash="dot", line_color="gray")
     promedio_proyecto = df_tecnologia_filtrado['Energía'].mean()
     st.plotly_chart(fig2, use_container_width=True)
-    st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
+    st.markdown(f"**Promedio por tecnologia: {promedio_proyecto:,.2f}**")
 
 # Línea divisoria
 st.markdown("---")
@@ -94,4 +94,4 @@ fig3 = px.line(df_filtered, x='Fecha', y='Energía', color_discrete_sequence=['#
 fig3.add_hline(y=df_filtered['Energía'].mean(), line_dash="dot", line_color="gray")
 promedio_proyecto = df_filtered['Energía'].mean()
 st.plotly_chart(fig3, use_container_width=True)
-st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
+st.markdown(f"**Promedio del sistema: {promedio_proyecto:,.2f}**")
