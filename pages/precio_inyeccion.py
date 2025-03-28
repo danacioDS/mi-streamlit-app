@@ -57,7 +57,9 @@ with col1:
     st.subheader(f"Precio Promedio de {proyecto_seleccionado} ({tecnologia_seleccionada})")
     fig1 = px.bar(df_final, x='Fecha', y='Precio', color_discrete_sequence=['#1f77b4'])
     fig1.add_hline(y=df_final['Precio'].mean(), line_dash="dot", line_color="gray")
+    promedio_proyecto = df_final['Precio'].mean()
     st.plotly_chart(fig1, use_container_width=True)
+    st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
 
 # Gráfico de precio promedio por tecnología
 df_tecnologia = df_long.groupby(['Fecha', 'Tecnología'])['Precio'].mean().reset_index()
@@ -68,7 +70,9 @@ with col2:
     st.subheader(f"Precio Promedio de Tecnología: {tecnologia_seleccionada}")
     fig2 = px.area(df_tecnologia_filtrado, x='Fecha', y='Precio', color_discrete_sequence=['#d62728'])
     fig2.add_hline(y=df_tecnologia_filtrado['Precio'].mean(), line_dash="dot", line_color="gray")
+    promedio_proyecto = df_tecnologia_filtrado['Precio'].mean()
     st.plotly_chart(fig2, use_container_width=True)
+    st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
 
 # Línea divisoria
 st.markdown("---")
@@ -88,4 +92,7 @@ df_filtered = df_total[(df_total['Fecha'] >= date_range[0]) & (df_total['Fecha']
 
 fig3 = px.line(df_filtered, x='Fecha', y='Precio', color_discrete_sequence=['#ff7f0e'])
 fig3.add_hline(y=df_filtered['Precio'].mean(), line_dash="dot", line_color="gray")
+promedio_proyecto = df_filtered['Precio'].mean()
 st.plotly_chart(fig3, use_container_width=True)
+st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
+

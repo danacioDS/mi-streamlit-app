@@ -43,9 +43,11 @@ fig3 = px.line(df_filtered, x='Fecha', y='Peaje', markers=True, color_discrete_s
 # Agregar líneas de referencia
 fig3.add_hline(y=df_filtered['Peaje'].mean(), line_dash="dot", line_color="gray")
 fig3.add_vline(x=df_filtered['Fecha'].max(), line_dash="dot", line_color="gray")
+promedio_proyecto = df_filtered['Peaje'].mean()
 
 # Mostrar gráfico
 st.plotly_chart(fig3, use_container_width=True)
+st.markdown(f"**Promedio: {promedio_proyecto:,.2f}**")
 
 
 
